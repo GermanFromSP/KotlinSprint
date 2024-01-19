@@ -5,6 +5,7 @@ import kotlin.math.pow
 private const val ANNUAL_INTEREST_RATE = 16.7
 private const val FULL_PERCENT = 100
 private const val INVESTMENT_PERIOD_IN_YEARS = 20
+
 fun main() {
     val initialAmount = 70_000
 
