@@ -18,16 +18,15 @@ fun main() {
     println("Благоприятность метеоусловий (true/false): ")
     val isGoodWeather = readln().toBoolean()
 
-    val isApproved =
-        (isDamaged and
-                (isGoodWeather &&
-                        ((boxesOfProvision >= MIN_BOXES_OF_PROVISIONS) && (crewSize == MAX_CREW_SIZE))
-                        ))
-                ||
-                (!isDamaged and
-                        ((boxesOfProvision > MIN_BOXES_OF_PROVISIONS) &&
-                                ((crewSize <= MAX_CREW_SIZE) && (crewSize >= MIN_CREW_SIZE))
-                                ))
+    val isApproved = (isDamaged &&
+            isGoodWeather &&
+            boxesOfProvision >= MIN_BOXES_OF_PROVISIONS &&
+            crewSize == MAX_CREW_SIZE)
+            ||
+            (!isDamaged &&
+            boxesOfProvision > MIN_BOXES_OF_PROVISIONS &&
+            crewSize <= MAX_CREW_SIZE &&
+            crewSize >= MIN_CREW_SIZE)
 
     println("Разрешение на отплытие: $isApproved")
 
