@@ -11,7 +11,7 @@ fun main() {
 
     if (userDecision == POSITIVE_RESPONSE) {
         println("Какой ингредиент вы хотите добавить?")
-        listOfIngredients.add( readln().replaceFirstChar(Char::titlecase) )
+        listOfIngredients.add(readln().replaceFirstChar(Char::titlecase))
         println("Теперь в рецепте есть следующие ингредиенты: ${listOfIngredients.joinToString()}")
     } else {
         return
