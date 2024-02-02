@@ -7,12 +7,14 @@ fun main() {
     println("Введите пароль (не менее 4-х символов):")
     val userPassword = readln()
 
-    validateUserData(userName, userPassword)
+    if (!checkDataLength(userName) || !checkDataLength(userPassword)) {
+        println("Логин или пароль недостаточно длинные")
+    } else {
+        println("Добро пожаловать!")
+    }
 }
 
-fun validateUserData(name: String, password: String) {
-    if (name.length < 4 || password.length < 4) {
-        println("Логин или пароль недостаточно длинные")
-    } else
-        println("Добро пожаловать!")
+fun checkDataLength(userParameter: String): Boolean {
+    val minLength = 4
+    return userParameter.length >= minLength
 }
