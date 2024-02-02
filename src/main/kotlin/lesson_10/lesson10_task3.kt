@@ -9,12 +9,12 @@ fun main() {
 
 fun generatePassword(passwordLength: Int): String {
     val numbers = (0..9).toList()
-    val specialSymbols = ("!\"#$%&'()*+,-./ ").toList()
+    val specialSymbols = (32..47).toList()
     var password = ""
 
     for (i in 1..passwordLength) {
         if (i % 2 == 0) {
-            password += specialSymbols[specialSymbols.indices.random()]
+            password += specialSymbols[specialSymbols.indices.random()].toChar()
         } else {
             password += numbers[numbers.indices.random()]
         }
