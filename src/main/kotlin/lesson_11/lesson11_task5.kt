@@ -24,9 +24,20 @@ class Forum() {
     }
 
     fun createNewMessage(userId: Int) {
-        val userName = userList[userId].userName
-        println("$userName печатает...")
-        messageList.add(ForumMessage.newMessage(userId, readln()))
+
+        if (userList.any { it.userId == userId }) {
+
+            val userName = userList[userId].userName
+            println("$userName печатает...")
+            val userMessage = readln()
+
+            if (userMessage.isNotEmpty()) {
+                messageList.add(ForumMessage.newMessage(userId, userMessage))
+            }
+
+        } else {
+            println("Оставлять сообщения могут только зарегестрированные пользователи!")
+        }
     }
 
     fun printThread() {
