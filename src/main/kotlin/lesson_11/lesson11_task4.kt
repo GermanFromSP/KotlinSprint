@@ -4,30 +4,47 @@ fun main() {
 
 }
 
-class Ingredient(val title: String)
-
 class Category(
     val image: String,
     val title: String,
     val description: String,
-)
+) {
 
-class Recipe(
-    val image: String,
-    val title: String,
-    var isFavourite: Boolean = false
-    ) {
+    private val listOfRecipes = mutableListOf<Recipe>()
 
-    private val recipeMap = mutableMapOf<Ingredient, Int>()
-
-    fun addNewIngredient(ingredient: Ingredient, quantity: Int) {
-        recipeMap[ingredient] = quantity
+    fun addNewRecipe(recipe: Recipe) {
+        listOfRecipes.add(recipe)
     }
 
-    fun removeIngredient(ingredient: Ingredient) {
-        recipeMap.remove(ingredient)
+    fun removeRecipe(recipeId: Int) {
+        listOfRecipes.removeAt(recipeId)
     }
 
-    fun getAllIngredient() = recipeMap
+    fun getAllRecipes() = listOfRecipes
 }
 
+class Recipe(
+    val id: Int,
+    val image: String,
+    val title: String,
+    var isFavourite: Boolean = false,
+) {
+
+    private val listOfIngredients = mutableListOf<Ingredient>()
+
+    fun addNewIngredient(ingredient: Ingredient) {
+        listOfIngredients.add(ingredient)
+    }
+
+    fun removeIngredient(ingredientId: Int) {
+        listOfIngredients.removeAt(ingredientId)
+    }
+
+    fun getAllIngredient() = listOfIngredients
+}
+
+class Ingredient(
+    val id: Int,
+    val title: String,
+    val count: Int,
+)
