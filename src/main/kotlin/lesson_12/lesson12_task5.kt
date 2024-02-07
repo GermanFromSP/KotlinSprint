@@ -4,13 +4,15 @@ import java.util.Random
 
 fun main() {
     val listOfWeatherData = mutableListOf<WeatherData5>()
+    val metersData = (270..310)
+    val rainfallDays = Random()
 
     for (day in 1..30) {
         listOfWeatherData.add(
             WeatherData5(
-                (270..310).random(),
-                (270..310).random(),
-                Random().nextBoolean(),
+                metersData.random(),
+                metersData.random(),
+                rainfallDays.nextBoolean(),
             )
         )
     }
@@ -33,12 +35,12 @@ class WeatherData5(
     nightTemperatureKelvin: Int,
     _rainfallPerDay: Boolean
 ) {
-    val dailyTemperatureCelsius = (dailyTemperatureKelvin - TEMPERATURE_CONST).toInt()
-    val nightTemperatureCelsius = (nightTemperatureKelvin - TEMPERATURE_CONST).toInt()
+    val dailyTemperatureCelsius = (dailyTemperatureKelvin - NEGATIVE_ZERO_KELVIN_IN_CELSIUS).toInt()
+    val nightTemperatureCelsius = (nightTemperatureKelvin - NEGATIVE_ZERO_KELVIN_IN_CELSIUS).toInt()
     val rainfallPerDay = _rainfallPerDay
 
     companion object {
-        private const val TEMPERATURE_CONST = 273.15
+        private const val NEGATIVE_ZERO_KELVIN_IN_CELSIUS = 273.15
         const val CELSIUS = "\u2103"
     }
 }
