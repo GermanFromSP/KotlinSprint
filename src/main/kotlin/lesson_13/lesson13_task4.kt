@@ -10,11 +10,11 @@ fun main() {
         println("Имя:")
         val name = readln()
 
-        println("Номер:")
-        var number = readln().toLongOrNull()
-
         println("Компания")
         val company = readln().ifEmpty { null }
+
+        println("Номер:")
+        var number = readln().toLongOrNull()
 
         if (number == null) {
             while (number == null) {
@@ -33,16 +33,12 @@ fun main() {
 }
 
 class Contact4(
-    _name: String,
-    _phoneNumber: Long,
-    _company: String? = null
+    val name: String,
+    val phoneNumber: Long,
+    val company: String? = null
 ) {
 
-    val name = _name
-    val phoneNumber = _phoneNumber
-    val company = _company ?: "<не указано>"
-
     fun printInfo() {
-        println("Контакт(Имя: $name, Номер:$phoneNumber, Компания: $company)")
+        println("Контакт(Имя: $name, Номер:$phoneNumber, Компания: ${company ?: "<не указано>"})")
     }
 }
