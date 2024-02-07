@@ -1,9 +1,11 @@
 package lesson_12
 
 fun main() {
-    val weatherData = WeatherData4(300, 290, true)
-
-
+    val weatherData = WeatherData4(
+        dailyTemperatureKelvin = 300,
+        nightTemperatureKelvin = 290,
+        _rainfallPerDay = true
+    )
 }
 
 class WeatherData4(
@@ -11,9 +13,10 @@ class WeatherData4(
     nightTemperatureKelvin: Int,
     _rainfallPerDay: Boolean
 ) {
-    val dailyTemperatureCelsius = (dailyTemperatureKelvin - TEMPERATURE_CONST).toInt()
-    val nightTemperatureCelsius = (nightTemperatureKelvin - TEMPERATURE_CONST).toInt()
+    val dailyTemperatureCelsius = (dailyTemperatureKelvin - NEGATIVE_ZERO_KELVIN_IN_CELSIUS).toInt()
+    val nightTemperatureCelsius = (nightTemperatureKelvin - NEGATIVE_ZERO_KELVIN_IN_CELSIUS).toInt()
     val rainfallPerDay = _rainfallPerDay
+
     init {
         println(
             """
@@ -25,7 +28,7 @@ class WeatherData4(
     }
 
     companion object {
-        private const val TEMPERATURE_CONST = 273.15
+        private const val NEGATIVE_ZERO_KELVIN_IN_CELSIUS = 273.15
         private const val CELSIUS = "\u2103"
     }
 }
