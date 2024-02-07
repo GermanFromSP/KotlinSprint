@@ -6,16 +6,12 @@ fun main() {
 }
 
 class Contact2(
-    _name: String,
-    _phoneNumber: Long,
-    _company: String? = null
+    val name: String,
+    val phoneNumber: Long,
+    val company: String? = null
 ) {
 
-    val name = _name
-    val phoneNumber = _phoneNumber
-    val company = _company ?: "<не указано>"
-
     fun printInfo() {
-        println("Контакт(Имя: $name, Номер:$phoneNumber, Компания: $company)")
+        println("Контакт(Имя: $name, Номер:$phoneNumber, Компания: ${company ?: "<не указано>"})")
     }
 }
