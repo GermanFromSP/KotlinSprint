@@ -9,7 +9,7 @@ fun main() {
         Contact3("Kenshi", 89934564219, "TOKIO CITY"),
     )
 
-    contactsList.map { if (it.company != null && it.company != "null") println(it.company) }
+    println(contactsList.mapNotNull { if (it.company == "null") null else it.company })
 }
 
 class Contact3(
