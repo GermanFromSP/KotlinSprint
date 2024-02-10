@@ -2,14 +2,17 @@ package lesson_14
 
 import kotlin.math.pow
 
+private const val COLOR_BLACK = "black"
+private const val COLOR_WHITE = "white"
+
 fun main() {
     val listOfFigure = listOf(
-        Circle("black", 12),
-        Rectangle("white", 9, 19),
-        Circle("white", 7),
-        Rectangle("black", 3, 8),
-        Circle("black", 16),
-        Rectangle("white", 7, 14)
+        Circle(COLOR_BLACK, 12),
+        Rectangle(COLOR_WHITE, 9, 19),
+        Circle(COLOR_WHITE, 7),
+        Rectangle(COLOR_BLACK, 3, 8),
+        Circle(COLOR_WHITE, 16),
+        Rectangle(COLOR_BLACK, 7, 14)
     )
 
     println(
