@@ -30,14 +30,14 @@ open class Liner2(
     val passengerCapacity: Int,
 ) {
 
-    open fun startLoading() = "Pulls out the horizontal ladder from the waist"
+    open fun getStartLoading() = "Pulls out the horizontal ladder from the waist"
 
     open fun shipProperties(): String {
         return """
             Speed = $speedInKnots
             Carrying capacity = $liftingCapacityInTons
             Passenger capacity = $passengerCapacity
-            Loading method: ${startLoading()}
+            Loading method: ${getStartLoading()}
         """.trimIndent()
     }
 }
@@ -49,7 +49,7 @@ class Icebreaker2(
     val canCrushIce: Boolean = true
 ) : Liner2(speedInKnots, liftingCapacityInTons, passengerCapacity) {
 
-    override fun startLoading() = "Icebreaker opens gate from stern side"
+    override fun getStartLoading() = "Icebreaker opens gate from stern side"
 
     override fun shipProperties(): String {
        return super.shipProperties() + "\nCan crush ice: $canCrushIce"
@@ -62,7 +62,7 @@ class CargoShip2(
     passengerCapacity: Int,
 ) : Liner2(speedInKnots, liftingCapacityInTons, passengerCapacity) {
 
-    override fun startLoading() = "Cargo ship activates loading crane"
+    override fun getStartLoading() = "Cargo ship activates loading crane"
 
     override fun shipProperties(): String {
         return super.shipProperties()
