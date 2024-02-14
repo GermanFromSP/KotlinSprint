@@ -19,9 +19,9 @@ fun main() {
         passengerCapacity = 75
     )
 
-    println(liner.shipProperties())
-    println(icebreaker.shipProperties())
-    println(cargoShip.shipProperties())
+    println(liner.getShipProperties())
+    println(icebreaker.getShipProperties())
+    println(cargoShip.getShipProperties())
 }
 
 open class Liner2(
@@ -32,7 +32,7 @@ open class Liner2(
 
     open fun getStartLoading() = "Pulls out the horizontal ladder from the waist"
 
-    open fun shipProperties(): String {
+    open fun getShipProperties(): String {
         return """
             Speed = $speedInKnots
             Carrying capacity = $liftingCapacityInTons
@@ -51,8 +51,8 @@ class Icebreaker2(
 
     override fun getStartLoading() = "Icebreaker opens gate from stern side"
 
-    override fun shipProperties(): String {
-       return super.shipProperties() + "\nCan crush ice: $canCrushIce"
+    override fun getShipProperties(): String {
+       return super.getShipProperties() + "\nCan crush ice: $canCrushIce"
     }
 }
 
@@ -64,7 +64,7 @@ class CargoShip2(
 
     override fun getStartLoading() = "Cargo ship activates loading crane"
 
-    override fun shipProperties(): String {
-        return super.shipProperties()
+    override fun getShipProperties(): String {
+        return super.getShipProperties()
     }
 }
