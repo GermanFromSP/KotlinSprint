@@ -5,40 +5,48 @@ fun main() {
     val seagull = Seagull()
     val duck = Duck()
 
-    crucian.printMovementInfo()
-    seagull.printMovementInfo()
-    duck.printMovementInfo()
+    crucian.swim()
+
+    duck.fly()
+    duck.swim()
+
+    seagull.fly()
+    seagull.swim()
 }
 
 interface FloatingCreature {
-    fun getSwim(): String
+    fun swim()
 }
 
 interface FlyingCreature {
-    fun getFly(): String
+    fun fly()
 }
 
 class Crucian : FloatingCreature {
-    override fun getSwim() = "Плавать"
-    fun printMovementInfo() {
-        println("Карась умеет: ${getSwim()}")
+    override fun swim() {
+        println("Карась плывет")
     }
 }
 
 class Seagull : FlyingCreature, FloatingCreature {
-    override fun getFly() = "Летать"
-    override fun getSwim() = "Плавать"
-
-    fun printMovementInfo() {
-        println("Чайка умеет: ${getFly()}, ${getSwim()}")
+    override fun fly() {
+        println("Чайка летит")
     }
+
+    override fun swim() {
+        println("Чайка плывет")
+    }
+
 }
 
 class Duck : FlyingCreature, FloatingCreature {
-    override fun getSwim()= "Летать"
-    override fun getFly() = "Плавать"
+    override fun swim() {
+        println("Утка плывет")
 
-    fun printMovementInfo() {
-        println("Утка умеет: ${getFly()}, ${getSwim()}")
     }
+
+    override fun fly() {
+        println("Утка летит")
+    }
+
 }
