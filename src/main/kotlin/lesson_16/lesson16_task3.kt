@@ -13,10 +13,8 @@ fun main() {
     }
 }
 
-class User(login: String, password: String) {
+class User(private val userLogin: String, private val userPassword: String) {
 
-    private val userLogin = login
-    private val userPassword = password
 
     fun checkUserPassword(password: String): Boolean {
         return password == userPassword
